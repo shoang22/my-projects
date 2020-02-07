@@ -1,0 +1,528 @@
+---
+title: "CL1_Network_Analysis"
+author: "Collin Henley"
+date: "December 6, 2019"
+output: pdf_document
+---
+
+
+
+```{r}
+# import packages
+library(dplyr)
+
+library(magrittr)
+library(ggplot2)
+library(tidyr)
+library(tidyverse)
+
+# import packages that are based off of networks
+# install.packages("igraph") 
+# install.packages("network") 
+# install.packages("sna")
+# install.packages("ggraph")
+# install.packages("visNetwork")
+# install.packages("threejs")
+# install.packages("networkD3")
+# install.packages("ndtv")
+library(igraph)
+library(network)
+# library("sna")
+library(ggraph)
+library(visNetwork)
+library(threejs)
+library(networkD3)
+# library(ndtv)
+
+
+```
+
+
+
+```{r}
+# setting the working directory
+# setwd(dir = "C:/Users/Colli/OneDrive/Everything/Documents/College School Work/Current Semester/CDS 490/Dating_Sim/CL1")
+# list.dirs(path = "C:/Users/Colli/OneDrive/Everything/Documents/College School Work/Current Semester/CDS 490/Dating_Sim/CL1")
+```
+
+
+```{r}
+# need to import the data
+
+# All complexity level's networks
+# complexity level one
+edge_att_df_CL1 <- read.csv("CL1_NETWORK_FOR_ANALYSIS.csv")
+edge_att_df_CL1 <- edge_att_df_CL1 %>%
+  select(-X)
+
+
+# complexity level two
+edge_att_df_CL2 <- read.csv("CL2_NETWORK_FOR_ANALYSIS.csv")
+edge_att_df_CL2 <- edge_att_df_CL2 %>%
+  select(-X)
+
+
+# complexity level three
+# edge_att_df_CL3 <- read.csv("CL3_NETWORK_FOR_ANALYSIS.csv")
+# edge_att_df_CL3 <- edge_att_df_CL3 %>%
+#   select(-X)
+
+
+
+# head(edge_att_df_CL1)
+# head(edge_att_df_CL2)
+# head(edge_att_df_CL3)
+
+
+
+# 
+
+# each one is a different dataframe
+# node_a, node_b, like
+
+print("-----------------------")
+print("Facts about Complexity Level One's Network")
+
+print("total likes")
+sum(edge_att_df_CL1$like)
+print("total likes with message")
+sum(edge_att_df_CL1$like_with_message)
+print("total dislikes")
+sum(edge_att_df_CL1$dislike)
+print("total matches")
+sum(edge_att_df_CL1$match)
+print("total messages")
+sum(edge_att_df_CL1$message)
+
+
+print('')
+print("")
+print("")
+
+
+print("-----------------------")
+print("Facts about Complexity Level Two's Network")
+
+print("total likes")
+sum(edge_att_df_CL2$like)
+print("total likes with message")
+sum(edge_att_df_CL2$like_with_message)
+print("total dislikes")
+sum(edge_att_df_CL2$dislike)
+print("total matches")
+sum(edge_att_df_CL2$match)
+print("total messages")
+sum(edge_att_df_CL2$message)
+# 
+# 
+# 
+# print("")
+# print("")
+# print("")
+# 
+# 
+# print("-----------------------")
+# print("Facts about Complexity Level Three's Network")
+# 
+# print("total likes")
+# sum(edge_att_df_CL3$like)
+# print("total likes with message")
+# sum(edge_att_df_CL3$like_with_message)
+# print("total dislikes")
+# sum(edge_att_df_CL3$dislike)
+# print("total matches")
+# sum(edge_att_df_CL3$match)
+# print("total messages")
+# sum(edge_att_df_CL3$message)
+# print("-----------------------")
+
+```
+```{r}
+# separating the dataset into a attribute dataset and a edge dataset
+
+# Complexity One
+edge_data_CL1 <-edge_att_df_CL1 %>%
+  select(node_a,node_b,like,dislike,match,message,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score)
+att_data_CL1 <- edge_att_df_CL1 %>%
+  select(node_a,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a)
+print('edge_data')
+head(edge_data_CL1)
+print('att_data')
+head(att_data_CL1)
+
+# get unique values
+att_data_CL1 <- unique(att_data_CL1)
+
+# total up all the likes/dislikes/ect.
+totals_CL1 <- edge_data_CL1 %>%
+  group_by(node_a) %>%
+  summarise(
+    like = sum(like),
+    dislike = sum(dislike),
+    match = sum(match),
+    message = sum(message)
+  )
+
+length(totals_CL1$like)
+length(att_data$node_a)
+
+
+
+att_data_CL1 <- merge(att_data,totals_CL1)
+
+# length(merged_att_data$node_a)
+print("att_data")
+att_data_CL1
+
+
+
+
+print("----------------------------")
+
+# Complexity Two
+# need to add like_score into this one. Might call it match_power
+edge_data_CL2 <-edge_att_df_CL2 %>%
+  select(node_a,node_b,like,dislike,match,message,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score)
+att_data_CL2 <- edge_att_df_CL2 %>%
+  select(node_a,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a)
+print('edge_data')
+head(edge_data_CL2)
+print('att_data')
+head(att_data_CL2)
+
+# get unique values
+att_data_CL2 <- unique(att_data_CL2)
+
+# total up all the likes/dislikes/ect.
+totals_CL2 <- edge_data_CL2 %>%
+  group_by(node_a) %>%
+  summarise(
+    like = sum(like),
+    dislike = sum(dislike),
+    match = sum(match),
+    message = sum(message)
+  )
+
+length(totals_CL2$like)
+length(att_data$node_a)
+
+
+
+att_data_CL2 <- merge(att_data,totals_CL2)
+
+# length(merged_att_data$node_a)
+print("att_data")
+att_data_CL2
+
+
+print("--------------------------------")
+
+# 
+# 
+# # Complexity Three
+# edge_data_CL3 <-edge_att_df_CL3 %>%
+#   select(node_a,node_b,like,dislike,match,message,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score)
+# att_data_CL3 <- edge_att_df_CL3 %>%
+#   select(node_a,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a)
+# print('edge_data')
+# head(edge_data_CL3)
+# print('att_data')
+# head(att_data_CL3)
+# 
+# # get unique values
+# att_data_CL3 <- unique(att_data_CL3)
+# 
+# # total up all the likes/dislikes/ect.
+# totals_CL3 <- edge_data_CL3 %>%
+#   group_by(node_a) %>%
+#   summarise(
+#     like = sum(like),
+#     dislike = sum(dislike),
+#     match = sum(match),
+#     message = sum(message)
+#   )
+# 
+# length(totals_CL3$like)
+# length(att_data$node_a)
+# 
+# 
+# 
+# att_data_CL3 <- merge(att_data,totals_CL3)
+# 
+# # length(merged_att_data$node_a)
+# print("att_data")
+# att_data_CL3
+
+
+
+print("----------------------------------------------")
+
+
+```
+
+```{r}
+# edge_data:
+head(edge_data_CL1)
+```
+
+
+```{r}
+# need to separate each edge type into it's own network for each complexity level
+
+# complexity level one
+# like edgess
+like_edges_CL1 <- edge_data_CL1 %>%
+  select(node_a,node_b,like,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+  filter(like == 1)
+
+# like with messages
+# like_w_message <- edge_data %>%
+#   select(node_a,node_b,like_with_message)
+
+# dislike edges
+dislike_edges_CL1 <- edge_data_CL1 %>%
+  select(node_a,node_b,dislike,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+  filter(dislike == 1)
+
+
+# match edges
+match_edges_CL1 <- edge_data_CL1 %>%
+  select(node_a,node_b,match,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+  filter(match == 1)
+
+
+# message edges
+message_edges_CL1 <- edge_data_CL1 %>%
+  select(node_a,node_b,message,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+  filter(message == 1)
+
+print("-------------------------")
+
+
+# complexity level two
+# like edgess
+like_edges_CL2 <- edge_data_CL2 %>%
+  select(node_a,node_b,like,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+  filter(like == 1)
+
+# like with messages
+# like_w_message <- edge_data %>%
+#   select(node_a,node_b,like_with_message)
+
+# dislike edges
+dislike_edges_CL2 <- edge_data_CL2 %>%
+  select(node_a,node_b,dislike,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+  filter(dislike == 1)
+
+
+# match edges
+match_edges_CL2 <- edge_data_CL2 %>%
+  select(node_a,node_b,match,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+  filter(match == 1)
+
+
+# message edges
+message_edges_CL2 <- edge_data_CL2 %>%
+  select(node_a,node_b,message,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+  filter(message == 1)
+
+
+
+
+
+print("---------------------------------------")
+
+# 
+# # complexity level three
+# # like edgess
+# like_edges_CL3 <- edge_data_CL3 %>%
+#   select(node_a,node_b,like,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+#   filter(like == 1)
+# 
+# # like with messages
+# # like_w_message <- edge_data %>%
+# #   select(node_a,node_b,like_with_message)
+# 
+# # dislike edges
+# dislike_edges_CL3 <- edge_data_CL3 %>%
+#   select(node_a,node_b,dislike,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+#   filter(dislike == 1)
+# 
+# 
+# # match edges
+# match_edges_CL3 <- edge_data_CL3 %>%
+#   select(node_a,node_b,match,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+#   filter(match == 1)
+# 
+# 
+# # message edges
+# message_edges_CL3 <- edge_data_CL3 %>%
+#   select(node_a,node_b,message,gender_node_a,physical_attractiveness_node_a,age_node_a,ethnicity_node_a,like_score) %>%
+#   filter(message == 1)
+
+
+```
+
+
+# For LIKE EDGES FIRST WITH COMPLEXITY LEVEL ONE
+  # after we get the like edges done, we can then move on to doing other edges such as dislike, match, message.
+  # but, until we get like done, we will not worry about dislike, match, or message
+```{r}
+# using table function to turn it into matrix
+# complexity 1
+pre_network_CL1 <- table(like_edges_CL1 %>%
+                           select(node_a,node_b))
+
+
+
+# complexity 2
+pre_network_CL2 <- table(like_edges_CL2 %>%
+                           select(node_a,node_b))
+
+
+
+
+# complexity 3
+pre_network_CL3 <- table(like_edges_CL3 %>%
+                           select(node_a,node_b))
+
+
+
+# dimnames(pre_network_CL1)
+
+```
+
+
+
+```{r}
+network_CL1 <- get_network(pre_network_CL1)
+network_CL2 <- get_network(pre_network_CL2)
+network_CL3 <- get_network(pre_network_CL3)
+```
+
+
+
+```{r}
+# like_edges is our inds
+head(like_edges)
+
+
+
+# Generate network
+
+
+
+# we need to create a matrix for each one of our node attributes
+# Create similarity matrix for: gender, physical attractiveness, age, ethnicity
+gender <- array(0,dim(network))
+physical_attractiveness <- array(0,dim(network))
+age <- array(0,dim(network))
+ethnicity <- array(0,dim(network))
+
+print("Here are all the dims before the for loop:")
+print("network")
+print(dim(network))
+# print("gender")
+# print(dim())
+print("physical_attractiveness")
+print(dim(physical_attractiveness))
+print("age")
+print(dim(age))
+print("ethnicty")
+print(dim(ethnicity))
+
+
+like_edges$ethnicity_node_a
+
+# Fill each matrix with 1 (same) or 0 (different)
+for (i in 1:nrow(network)) {
+  print(i)
+  # question: what is exactly supposed to go here? the gender of node_a? 
+    # for now, that is what I am going to assume
+    # not going to look at gender since it will never be the same
+	# gender[,i] <- if_else(like_edges$gender_node_a[i] == "male", 1,0)
+	ethnicity[,-i] <- as.numeric(like_edges$ethnicity_node_a[1] == like_edges$ethnicity_node_a[-i])
+	# [,-i] <- as.numeric(inds$SPECIES[1] == inds$SPECIES[-i])
+
+  
+  
+  
+  
+  
+  
+#   # if they are similar in attractiveness by 0.2
+# 	physical_attractiveness[,-i] <- if_else(abs(like_edges$physical_attractiveness_node_a[1] - like_edges$physical_attractiveness_node_a[-i]) <= 0.2,1,0)
+# 	
+# 	# if the age is similar by 4 years
+# 	age[,-i] <- if_else(abs(like_edges$age_node_a[i] - inds$SPECIES[-i]) <= 4, 1, 0)
+# 	
+# 	# if the ethnicity is the same
+# 	ethnicity[,-i] <- if_else(like_edges$ethnicity_node_a[i] == like_edges$ethnicity_node_a[-i])
+
+	
+}
+
+
+print("Here are all the dims before the for loop:")
+print("network")
+print(dim(network))
+# print("gender")
+# print(dim())
+print("physical_attractiveness")
+print(dim(physical_attractiveness))
+print("age")
+print(dim(age))
+print("ethnicty")
+print(dim(ethnicity))
+
+
+# Run mrqap.dsp
+# Note randomisations are limited to 10 to reduce runtime
+reg <- mrqap.dsp(network ~ ethnicity + physical_attractiveness + age, directed = 'directed', randomisations=10)
+
+# Look at results
+reg
+
+```
+
+
+
+
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+

@@ -1,0 +1,2 @@
+,complexity_level,date,time,sim_times,amount_of_days,max_swipes,age_range,age,high_like_male_prob,high_like_w_message_male_prob,low_like_male_prob,low_like_w_message_male_prob,high_like_female_prob,high_like_w_message_female_prob,low_like_female_prob,low_like_w_message_female_prob
+0,2,12/11/2019,21:50,1000,3,5,5,31,0.01,0.01,0.005,0.005,0.01,0.01,0.005,0.005
