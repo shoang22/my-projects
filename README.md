@@ -11,7 +11,7 @@ Chicago crimes and census data are joined with venue information obtained with F
 ### Dating App Simulation
 Two agent based models are created to simulate agent interactions in dating applications. Each application was created with its own level of multiplicity. The goal of this experiment was to observe agent interactions under differing rulesets. This project was submitted to the SpringSim 2020 Conference and is currently under review for publication in a scientific journal.
 
-*Libraries: networkx, numpy, time, random, scipy
+*Libraries: networkx, numpy, time, random, scipy*
 
 ### Housing Price Predictor Model (Winner of UiPath Track in MLH Hoya Hacks 2020)
-A UiPath automoation sequence allows the user to input attributes of their desired home. In the next part of the sequence a machine learning algorithm is trained with a house listing dataset, and uses the training data to return a price based on the inputs given by the user.
+A UiPath automoation sequence allows the user to input attributes of their desired home. In the next part of the sequence a machine learning algorithm s trained with a house listing dataset, and uses the training data to return a price based on the inputs given by the user.
