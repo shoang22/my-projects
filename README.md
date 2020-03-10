@@ -13,5 +13,6 @@ Two agent based models are created to simulate agent interactions in dating appl
 
 *Libraries: networkx, numpy, time, random, scipy*
 
-### Housing Price Predictor Model *Winner of UiPath Track in MLH Hoya Hacks 2020*
+### Housing Price Predictor Model 
+*Winner of UiPath Track in MLH Hoya Hacks 2020*
 A UiPath automoation sequence allows the user to input attributes of their desired home. In the next part of the sequence a machine learning algorithm s trained with a house listing dataset, and uses the training data to return a price based on the inputs given by the user.
