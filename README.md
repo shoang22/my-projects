@@ -8,7 +8,7 @@ Data analysis and feature engineering are performed on a cancer classification d
 
 *Libraries: pandas, matplotlib, scikit-learn, tensorflow, seaborn, numpy*
 
-### Chicago Crime Prediction Using K-Means Clustering
+### Chicago Crime Prediction by Venue Clusters
 Chicago crimes and census data are joined with venue information obtained with Foursquare Places API. The resulting dataset is used to train a K-Means Clustering algorithm to create clusters based on the frequency of venue types in a certain location. The clusters are evaluated to determine which combinations of venues have the highest probability of criminal incidents occuring.
 
 *Libraries: numpy, pandas, matplotlib, scikit-learn, folium*
@@ -18,7 +18,7 @@ Two agent based models are created to simulate agent interactions in dating appl
 
 *Libraries: networkx, numpy, time, random, scipy*
 
-### Housing Price Predictor Model 
+### Housing Price Forecaster
 A UiPath automoation sequence allows the user to input attributes of their desired home. A sequential neural network is then trained with a house listing dataset, and returns a predicted price based on the inputs given.
 
 *Winner of UiPath Track in MLH Hoya Hacks 2020*  
