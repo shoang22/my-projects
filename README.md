@@ -6,7 +6,7 @@ I am a student at George Mason University with a passion for all things data sci
 ### Cancer Classification Model
 Data analysis and feature engineering are performed on a cancer classification dataset for use with sequential neural network to classify observations as benign or malignant.
 
-*Libraries: pandas, matplotlib, scikit-learn, tensorflow, seaborn, numpy
+*Libraries: pandas, matplotlib, scikit-learn, tensorflow, seaborn, numpy*
 
 ### Chicago Crime Prediction Using K-Means Clustering
 Chicago crimes and census data are joined with venue information obtained with Foursquare Places API. The resulting dataset is used to train a K-Means Clustering algorithm to create clusters based on the frequency of venue types in a certain location. The clusters are evaluated to determine which combinations of venues have the highest probability of criminal incidents occuring.
