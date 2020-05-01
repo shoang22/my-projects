@@ -3,7 +3,12 @@ I am a student at George Mason University with a passion for all things data sci
 
 ## Contents
 
-### Chicago Crime Prediction Using K-Means Clustering
+### Cancer Classification Model
+Data analysis and feature engineering are performed on a cancer classification dataset for use with sequential neural network to classify observations as benign or malignant.
+
+*Libraries: pandas, matplotlib, scikit-learn, tensorflow, seaborn, numpy*
+
+### Chicago Crime Prediction by Venue Clusters
 Chicago crimes and census data are joined with venue information obtained with Foursquare Places API. The resulting dataset is used to train a K-Means Clustering algorithm to create clusters based on the frequency of venue types in a certain location. The clusters are evaluated to determine which combinations of venues have the highest probability of criminal incidents occuring.
 
 *Libraries: numpy, pandas, matplotlib, scikit-learn, folium*
@@ -13,7 +18,7 @@ Two agent based models are created to simulate agent interactions in dating appl
 
 *Libraries: networkx, numpy, time, random, scipy*
 
-### Housing Price Predictor Model 
-A UiPath automoation sequence allows the user to input attributes of their desired home. In the next part of the sequence a machine learning algorithm s trained with a house listing dataset, and uses the training data to return a price based on the inputs given by the user.
+### Housing Price Forecaster
+A UiPath automoation sequence allows the user to input attributes of their desired home. A sequential neural network is then trained with a house listing dataset, and returns a predicted price based on the inputs given.
 
 *Winner of UiPath Track in MLH Hoya Hacks 2020*  
