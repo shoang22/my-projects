@@ -1,4 +1,4 @@
-# My Data Science Portfolio
+# Data Science Portfolio
 I am a student at George Mason University with a passion for all things data science. Currently pursuing a bachelor's degree in Computational and Data Science with a minor in Biology, my domain interests extend outside the classroom to projects with applications in machine learning, agent-based modeling, and data analysis.
 
 ## Contents
