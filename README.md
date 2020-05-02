@@ -9,9 +9,9 @@ Data analysis and feature engineering are performed on a cancer classification d
 *Libraries: pandas, matplotlib, scikit-learn, tensorflow, seaborn, numpy*
 
 ### Chicago Crime Prediction by Venue Clusters
-Chicago crimes and census data are joined with venue information obtained with Foursquare Places API. The resulting dataset is used to train a K-Means Clustering algorithm to create clusters based on the frequency of venue types in a certain location. The clusters are evaluated to determine which combinations of venues have the highest probability of criminal incidents occuring.
+Chicago crimes and census data retrieved from Db2 instance are joined with venue information obtained with Foursquare Places API. The resulting dataset is used to train a K-Means Clustering algorithm to create clusters based on the frequency of venue types in a certain location. The clusters are evaluated to determine which combinations of venues have the highest probability of criminal incidents occuring.
 
-*Libraries: numpy, pandas, matplotlib, scikit-learn, folium*
+*Libraries: SQLAlchemy, numpy, pandas, matplotlib, scikit-learn, folium*
 
 ### Dating App Simulation
 Two agent based models are created to simulate agent interactions in dating applications. Each application was created with its own level of multiplicity. The goal of this experiment was to observe agent interactions under differing rulesets. This project was submitted to the SpringSim 2020 Conference and is currently under review for publication in a scientific journal.
