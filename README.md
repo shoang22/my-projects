@@ -11,6 +11,8 @@ Data analysis and feature engineering are performed on a cancer classification d
 ### Chicago Crime Prediction by Venue Clusters
 Chicago crimes and census data retrieved from Db2 instance are joined with venue information obtained with Foursquare Places API. The resulting dataset is used to train a K-Means Clustering algorithm to create clusters based on the frequency of venue types in a certain location. The clusters are evaluated to determine which combinations of venues have the highest probability of criminal incidents occuring.
 
+[View with interactive maps](https://nbviewer.jupyter.org/github/shoang22/my-projects/blob/master/chicago-crime-clusters/chicago-crime-clusters.ipynb) 
+
 *Libraries: SQLAlchemy, numpy, pandas, matplotlib, scikit-learn, folium*
 
 ### Dating App Simulation
