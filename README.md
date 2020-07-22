@@ -19,8 +19,3 @@ Chicago crimes and census data retrieved from Db2 instance are joined with venue
 Two agent based models are created to simulate agent interactions in dating applications. Each application was created with its own level of multiplicity. The goal of this experiment was to observe agent interactions under differing rulesets. This project was submitted to the SpringSim 2020 Conference and is currently under review for publication in a scientific journal.
 
 *Libraries: networkx, numpy, time, random, scipy*
-
-### Housing Price Forecaster
-A UiPath automoation sequence allows the user to input attributes of their desired home. A sequential neural network is then trained with a house listing dataset, and returns a predicted price based on the inputs given.
-
-*Winner of UiPath Track in MLH Hoya Hacks 2020*  
