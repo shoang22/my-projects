@@ -6,7 +6,7 @@ I am a student at George Mason University with a passion for all things data sci
 ### Cancer Classification Model
 Data analysis and feature engineering are performed on a cancer classification dataset for use with sequential neural network to classify observations as benign or malignant.
 
-*Libraries: pandas, matplotlib, scikit-learn, tensorflow, seaborn, numpy*
+*Libraries: pandas, matplotlib, scikit-learn, tensorflow.keras, seaborn, numpy*
 
 ### Chicago Crime Prediction by Venue Clusters
 Chicago crimes and census data retrieved from Db2 instance are joined with venue information obtained with Foursquare Places API. The resulting dataset is used to train a K-Means Clustering algorithm to create clusters based on the frequency of venue types in a certain location. The clusters are evaluated to determine which combinations of venues have the highest probability of criminal incidents occuring.
@@ -19,3 +19,8 @@ Chicago crimes and census data retrieved from Db2 instance are joined with venue
 Two agent based models are created to simulate agent interactions in dating applications. Each application was created with its own level of multiplicity. The goal of this experiment was to observe agent interactions under differing rulesets. This project was submitted to the SpringSim 2020 Conference and is currently under review for publication in a scientific journal.
 
 *Libraries: networkx, numpy, time, random, scipy*
+
+### Real or Not
+A dataset from Kaggle.com contains twitter posts referring to natural disasters. ALso included in the dataset are instances with keywords often associated with natural disasters, but not referring to incidents involving natural disasters. A long short term memory (LSTM) neural network is trained on the dataset to classify instances as actual referrals to natural disasters or posts not referring to natural disasters.
+
+*Libraries: tensorflow.keras, numpy, pandas, matplotlib
