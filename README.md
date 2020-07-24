@@ -1,5 +1,5 @@
 # Data Science Portfolio
-I am a student at George Mason University with a passion for all things data science. Currently pursuing a bachelor's degree in Computational and Data Science with a minor in Biology, my domain interests extend outside the classroom to projects with applications in machine learning, agent-based modeling, and data analysis.
+I am a student at George Mason University with a passion for all things data science. Currently pursuing a bachelor's degree in Computational and Data Science with a minor in Biology, my domain interests extend outside the classroom to projects with applications in machine learning, natural language processing, computer vision, and agent-based modeling.
 
 ## Contents
 
@@ -19,6 +19,11 @@ Chicago crimes and census data retrieved from Db2 instance are joined with venue
 Two agent based models are created to simulate agent interactions in dating applications. Each application was created with its own level of multiplicity. The goal of this experiment was to observe agent interactions under differing rulesets. This project was submitted to the SpringSim 2020 Conference and is currently under review for publication in a scientific journal.
 
 *Libraries: networkx, numpy, time, random, scipy*
+
+### Digit Recognizer
+Image data provided by Kaggle is used to train a ResNet50 convolutional neural network to predict whether images contained integers 0 through 9. The original dataset was provided in .csv format with coded pixels as columns. I had to covert the instances to images for the CNN to process.
+
+*Libraries: fastai, matplotlib, numpy, pandas, python imaging library, os, random*
 
 ### Real or Not
 A dataset from Kaggle.com contains twitter posts referring to natural disasters. ALso included in the dataset are instances with keywords often associated with natural disasters, but not referring to incidents involving natural disasters. A long short term memory (LSTM) neural network is trained on the dataset to classify instances as actual referrals to natural disasters or posts not referring to natural disasters.
