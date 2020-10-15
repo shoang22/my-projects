@@ -26,6 +26,6 @@ Image data provided by Kaggle is used to train a ResNet50 convolutional neural n
 *Libraries: fastai, matplotlib, numpy, pandas, python imaging library, os, random*
 
 ### Real or Not
-A dataset from Kaggle.com contains twitter posts referring to natural disasters. ALso included in the dataset are instances with keywords often associated with natural disasters, but not referring to incidents involving natural disasters. A long short term memory (LSTM) neural network is trained on the dataset to classify instances as actual referrals to natural disasters or posts not referring to natural disasters.
+A dataset from Kaggle.com contains twitter posts referring to natural disasters. Also included in the dataset are instances with keywords often associated with natural disasters, but not referring to incidents involving natural disasters. A long short term memory (LSTM) neural network was trained on the dataset to classify instances as actual referrals to natural disasters or posts not referring to natural disasters.
 
 *Libraries: tensorflow.keras, numpy, pandas, matplotlib*
